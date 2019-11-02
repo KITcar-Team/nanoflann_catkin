@@ -18,7 +18,8 @@ ExternalProject_Add(nanoflann_src
   INSTALL_COMMAND 
       mkdir -p ${CATKIN_DEVEL_PREFIX}/include/nanoflann/ &&
       cp ../nanoflann_src/include/nanoflann.hpp ${CATKIN_DEVEL_PREFIX}/include/nanoflann/ &&
-      cp ../nanoflann_src/examples/KDTreeVectorOfVectorsAdaptor.h ${CATKIN_DEVEL_PREFIX}/include/nanoflann/
+      cp ../nanoflann_src/examples/KDTreeVectorOfVectorsAdaptor.h ${CATKIN_DEVEL_PREFIX}/include/nanoflann/ &&
+      sed -i s|nanoflann.hpp|nanoflann/nanoflann.hpp|g ${CATKIN_DEVEL_PREFIX}/include/nanoflann/KDTreeVectorOfVectorsAdaptor.h
 )
 
 cs_install()
