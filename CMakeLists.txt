@@ -15,10 +15,9 @@ ExternalProject_Add(nanoflann_src
   CONFIGURE_COMMAND #cd ../nanoflann_src && cmake . -DCMAKE_CXX_FLAGS=-fPIC
   BUILD_COMMAND #cd ../nanoflann_src && make -j8
   INSTALL_COMMAND 
-      #cp ../nanoflann_src/libgmock.a ${CATKIN_DEVEL_PREFIX}/lib/ &&
-      #cp -rf ../nanoflann_src/include/gmock ${CATKIN_DEVEL_PREFIX}/include/ &&
       mkdir -p ${CATKIN_DEVEL_PREFIX}/include/nanoflann/ &&
       cp ../nanoflann_src/include/nanoflann.hpp ${CATKIN_DEVEL_PREFIX}/include/nanoflann/
+      cp ../nanoflann_src/examples/KDTreeVectorOfVectorsAdaptor.h ${CATKIN_DEVEL_PREFIX}/include/nanoflann/
 )
 
 cs_install()
